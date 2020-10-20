@@ -3,5 +3,5 @@ idena-manager add
 idena-manager disable
 rm -r ~/datadir-node1/idenachain.db && cd datadir-node1 && mkdir idenachain.db && cd idenachain.db && apt-get install unzip
 wget "https://idena.site/idenachain.db.zip" && unzip idenachain.db.zip && rm idenachain.db.zip && cd && nano .idena.config
-sudo ufw allow 9009/tcp && sudo ufw allow 2626/udp && idena-manager enable
+sudo ufw allow 9009/tcp && sudo ufw allow 9009/udp && idena-manager enable
 idena-manager status
