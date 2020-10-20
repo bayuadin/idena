@@ -13,6 +13,11 @@ rm -r ~/datadir-node1/idenachain.db && cd datadir-node1 && mkdir idenachain.db &
 #Mendownload file blockchain sebelumnya untuk mempercepat singkronisasi
 wget "https://idena.site/idenachain.db.zip" && unzip idenachain.db.zip && rm idenachain.db.zip && cd && nano .idena.config
 
+#Edit RPCHost dari "localhost" menjadi "0.0.0.0"
+Ctrl + X
+Y
+Enter
+
 #Membuka port 9009 dan mengaktifkannya
 sudo ufw allow 9009/tcp && sudo ufw allow 9009/udp && idena-manager enable
 
