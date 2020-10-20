@@ -1,0 +1,7 @@
+sudo fallocate -l 1G /swapfile2 && sudo chmod 600 /swapfile2 && sudo mkswap /swapfile2 && sudo swapon /swapfile2 && echo '/swapfile2 none swap sw 0 0' | sudo tee -a /etc/fstab && source <(curl -sL https://bit.ly/idena-manager-installer)
+idena-manager add
+idena-manager disable
+rm -r ~/datadir-node1/idenachain.db && cd datadir-node1 && mkdir idenachain.db && cd idenachain.db && apt-get install unzip
+wget "https://idena.site/idenachain.db.zip" && unzip idenachain.db.zip && rm idenachain.db.zip && cd && nano .idena.config
+sudo ufw allow 9009/tcp && sudo ufw allow 2626/udp && idena-manager enable
+idena-manager status
