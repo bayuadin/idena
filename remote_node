@@ -1,7 +1,26 @@
+#Install swap memory 1GB kemudian mendownload idena-manager
 sudo fallocate -l 1G /swapfile2 && sudo chmod 600 /swapfile2 && sudo mkswap /swapfile2 && sudo swapon /swapfile2 && echo '/swapfile2 none swap sw 0 0' | sudo tee -a /etc/fstab && source <(curl -sL https://bit.ly/idena-manager-installer)
+
+#Menambahkan node baru dan menentukan folder instalasi, penyetelah API Key dan pilihan untuk mereplace nodekey dengan yang lama atau membuat nodekey baru
 idena-manager add
+
+#Mematikan node sementara
 idena-manager disable
+
+#Menghapus idenachain.db lalu mendownload paket unizp
 rm -r ~/datadir-node1/idenachain.db && cd datadir-node1 && mkdir idenachain.db && cd idenachain.db && apt-get install unzip
+
+#Mendownload file blockchain sebelumnya untuk mempercepat singkronisasi
 wget "https://idena.site/idenachain.db.zip" && unzip idenachain.db.zip && rm idenachain.db.zip && cd && nano .idena.config
+
+#Membuka port 9009 dan mengaktifkannya
 sudo ufw allow 9009/tcp && sudo ufw allow 9009/udp && idena-manager enable
+
+#Mengecek status idena manager
 idena-manager status
+
+
+
+Catatan :
+-Tested di VPS Linux Ubuntu 18.04 (DigitalOcean)
+-VPS dalam kondisi fresh
