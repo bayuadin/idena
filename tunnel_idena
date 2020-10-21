@@ -13,6 +13,9 @@ rm -r ~/datadir-node1/idenachain.db && cd datadir-node1 && mkdir idenachain.db &
 #Mendownload file blockchain sebelumnya untuk mempercepat singkronisasi
 wget "https://idena.site/idenachain.db.zip" && unzip idenachain.db.zip && rm idenachain.db.zip
 
+#Mengaktifkan Idena-manager
+idena-manager enable
+
 #Mengecek status idena manager
 idena-manager status
 
